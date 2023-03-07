@@ -23,7 +23,7 @@ docker pull liamoz/stereo-assessment:0.0.1.RELEASE
 Running locally:
 
 ```bash
-yarn dev
+yarn start:dev
 ```
 
 building:
