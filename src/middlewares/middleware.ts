@@ -10,7 +10,7 @@ export default function appMiddleware(app: any) {
     .setTitle('Stereo Media')
     .setDescription('The Media API documentation')
     .setVersion('1.0')
-    .addTag('cats')
+    .addTag('Media')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('/', app, document);
