@@ -1,74 +1,75 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+<h1 align="center">Stereo Assessment Test Backend</h1>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
+Set the environment variables:
+(You can see all enviroment key at **src/config/config**)
 
 ```bash
-$ yarn install
+cp .env.example .env
 ```
 
-## Running the app
+## Feature
+
+-   **MySQL database**: [MySql](https://www.mysql.com/) object data modeling using [Typeorm](https://typeorm.io/)
+-   **Environment variables**: using [dotenv](https://github.com/motdotla/dotenv)
+
+## Commands
+
+Running locally with docker:
 
 ```bash
-# development
-$ yarn run start
-
-# watch mode
-$ yarn run start:dev
-
-# production mode
-$ yarn run start:prod
+docker pull liamoz/stereo-assessment:0.0.1.RELEASE
 ```
 
-## Test
+Running locally:
 
 ```bash
-# unit tests
-$ yarn run test
-
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
+yarn dev
 ```
 
-## Support
+building:
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```bash
+yarn build
+```
 
-## Stay in touch
+Running production (build before use):
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+```bash
+yarn start:prod
+```
 
-## License
+## Enviroment Variable
 
-Nest is [MIT licensed](LICENSE).
-# stereo-assessment
+The environment variables can be found and modified in the `.env` file. They come with these default values:
+
+```bash
+# Port number
+APP_PORT=3000
+
+# Database config
+
+# If you want to use database URI with DB_URI
+MYSQL_URI=http://localhost:3306/
+
+# Cloudinary
+CLOUDINARY_CLOUD_NAME=somecloud
+CLOUDINARY_API_KEY=coudapikey
+CLOUDINARY_API_SECRET=cloudapisecret
+```
+
+## Project Structure
+
+This project don't have **controllers** and **services** folders because we want to minimalized. If you want them, you can create it
+
+```bash
+src\
+ |--config\         # Environment variables and configuration related things
+ |--middlewares\    # Custom express middlewares
+ |--models\         # Exceptions models (data layer)
+ |--interceptors\   # Interceptors classes
+ |--pipes\          # Pipes classes
+ |--translation\    # Translation classes
+ |--typeorm\        # Entities
+ |--utils\          # Utility classes and functions
+ |--main.js        # App entry point
+```
