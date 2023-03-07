@@ -17,7 +17,9 @@ export class CloudinaryService {
 
   public async upload(path: any): Promise<string> {
     try {
-      const uploaded = await this.cloudinary.uploader.upload(path);
+      const uploaded = await this.cloudinary.uploader.upload(path, {
+        resource_type: 'auto',
+      });
       return uploaded.url;
     } catch (error) {
       console.log(error);

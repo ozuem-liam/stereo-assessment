@@ -122,7 +122,6 @@ export class MediaService {
   async deleteAMediaById(id: string) {
     let message: string;
     const updateResult = await this.mediaRepository.delete({ id });
-    console.log({});
     if (updateResult.affected !== 1) {
       message = messages['MEDIA-DELETE-ERROR'];
       return {

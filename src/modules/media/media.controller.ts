@@ -44,7 +44,6 @@ export class MediaController {
     @UploadedFile() file: Express.Multer.File,
     @Body() createMediaDto: CreateMediaDto,
   ) {
-    // console.log({ file });
     const { status, message, data } = await this.mediaService.createAMedia(
       createMediaDto,
       file,

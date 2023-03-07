@@ -11,9 +11,7 @@ export class SharedService {
 
   async imageUploader(path: string): Promise<string> {
     // upload image
-    console.log({ data: path });
     const url = await this.cloudinaryService.upload(path);
-    console.log({ data: url });
     // remove image from server
     fs.unlinkSync(path);
     return url;
